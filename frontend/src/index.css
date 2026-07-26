@@ -1,0 +1,40 @@
+/**
+ * index.css
+ * ------------------------------------------------------------------
+ * Global styles, loaded once in main.tsx. Component-level styling
+ * is done with Tailwind utility classes directly in each .tsx file —
+ * this file only holds things that can't be a utility class:
+ * the Tailwind directives themselves, smooth scroll, font defaults,
+ * text-selection color, and the reduced-motion accessibility override.
+ * ------------------------------------------------------------------
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3, .font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+::selection {
+  background-color: #4c6fff55;
+}
+
+/* Respect reduced-motion preference site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
